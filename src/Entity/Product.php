@@ -42,7 +42,7 @@ class Product
     private $stock;
 
     /**
-     * @ORM\OneToMany(targetEntity=StockHistoric::class, mappedBy="product")
+     * @ORM\OneToMany(targetEntity=StockHistoric::class, mappedBy="product", orphanRemoval=true)
      */
     private $stockHistorics;
 

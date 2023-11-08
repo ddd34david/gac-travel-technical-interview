@@ -51,7 +51,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $created_at;
 
     /**
-     * @ORM\OneToMany(targetEntity=StockHistoric::class, mappedBy="user_id")
+     * @ORM\OneToMany(targetEntity=StockHistoric::class, mappedBy="my_user")
      */
     private $stockHistorics;
 
