@@ -30,7 +30,7 @@
                         {% for historic in historics %}
                             <tr>
                                 <td class="text-left">{{ historic.myuser.username }}</td>
-                                <td class="text-left">{{ historic.createdAt|date("m/d/Y") }}</td>
+                                <td class="text-left">{{ historic.createdAt|date("m/d/Y H:i:s") }}</td>
                                 <td class="text-left">{{ historic.stock }}</td>
                             </tr>
                         {% else %}
