@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editar categoría{% endblock %}
+
+{% block body %}
+<div class="content-page">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="d-flex flex-wrap flex-wrap align-items-center justify-content-between mb-4">
+                    <div>
+                        <h4 class="mb-3">Editar categoría</h4>
+                    </div>
+                    {{ include('category/_delete_form.html.twig') }}
+                </div>
+            </div>
+            <div class="col-lg-12">
+                {{ include('category/_form.html.twig', {'button_label': 'Actualizar categoría'}) }}
+            </div> 
+        </div>
+    </div>
+</div>
+{% endblock %}
