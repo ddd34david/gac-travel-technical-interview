@@ -1,0 +1,35 @@
+{{ form_start(form) }}                               
+    <div class="row">
+        <div class="col-md-6">    
+            <!-- CON ERROR 
+            <div class="form-group has-error has-danger">-->                 
+            <div class="form-group">
+                <label>Nombre *</label>
+                {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+                {% if form_errors(form) %}
+                    <div class="help-block with-errors">
+                        <ul class="list-unstyled">
+                            <li>Rellene este campo.</li>
+                        </ul>
+                    </div>
+                {% endif %}
+                <!-- CON ERROR  
+                <div class="help-block with-errors">
+                    <ul class="list-unstyled">
+                        <li>Rellene este campo.</li>
+                    </ul>
+                </div>-->
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Categoría *</label>
+                {{ form_widget(form.category, {'attr': {'class': 'form-control'}}) }}
+            </div>
+        </div>
+        <div class="col-md-12 mt-5 text-center">
+            <button type="submit" class="btn btn-primary mr-2">{{ button_label|default('Añadir producto') }}</button>
+        </div>
+    </div>
+{{ form_end(form) }}
+
