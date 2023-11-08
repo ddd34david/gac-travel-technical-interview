@@ -37,7 +37,12 @@ class Category
 
     public function __construct()
     {
+        $this->created_at = new \DateTimeImmutable(); // Generó la fecha de creación
         $this->products = new ArrayCollection();
+    }
+
+    public function __toString(){
+        return $this->name;
     }
 
     public function getId(): ?int

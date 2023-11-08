@@ -40,6 +40,11 @@ class StockHistoric
      */
     private $stock;
 
+    public function __construct()
+    {
+        $this->created_at = new \DateTimeImmutable(); // Generó la fecha de creación
+    }
+
     public function getId(): ?int
     {
         return $this->id;

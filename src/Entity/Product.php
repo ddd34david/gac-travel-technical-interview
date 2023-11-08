@@ -48,6 +48,8 @@ class Product
 
     public function __construct()
     {
+        $this->created_at = new \DateTimeImmutable(); // Generó la fecha de creación
+        $this->stock = 0; // Asigno el stock predeterminado
         $this->stockHistorics = new ArrayCollection();
     }
 
