@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Usuarios{% endblock %}
+
+{% block body %}
+<div class="content-page">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="d-flex flex-wrap flex-wrap align-items-center justify-content-between mb-4">
+                    <div>
+                        <h4 class="mb-3">Usuarios</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="table-responsive mb-3">
+                    <table class="table mb-0 tbl-server-info no-footer" role="grid">
+                        <thead class="bg-white text-uppercase">
+                            <tr class="ligth ligth-data" role="row">
+                                <th class="text-left">Usuario</th>
+                                <th class="text-left">Id</th>
+                                <th class="text-left">Estado</th>
+                                <th class="text-right">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for user in users %}
+                            <tr>
+                                <td class="text-left">{{ user.username }}</td>
+                                <td class="text-left">{{ user.id }}</td>
+                                <td class="text-left">
+                                {% if user.active %}
+                                Activo
+                                {% else %}
+                                Desactivado
+                                {% endif %}
+                                </td>
+                                <td class="text-right">
+                                    <a class="badge bg-primary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Editar" href="{{ path('user_edit', {'id': user.id}) }}">
+                                        <i class="ri-pencil-line"></i>
+                                    </a>
+                                </td>
+                                <!--td class="text-left">{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}</td-->
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="4">no records found</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>
+{% endblock %}

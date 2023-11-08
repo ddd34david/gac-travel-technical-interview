@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editar Usuario{% endblock %}
+
+{% block body %}
+<div class="content-page">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="d-flex flex-wrap flex-wrap align-items-center justify-content-between mb-4">
+                    <div>
+                        <h4 class="mb-3">Editar usuario</h4>
+                    </div>
+                    {{ include('user/_delete_form.html.twig') }}
+                </div>
+            </div>
+            <div class="col-lg-12">
+                {{ form_start(form) }}
+                                        
+                    <div class="row">
+                        <div class="col-md-6">    
+                            <!-- CON ERROR 
+                            <div class="form-group has-error has-danger">-->                 
+                            <div class="form-group">
+                                <label>Nombre *</label>
+                                {{ form_widget(form.username, {'attr': {'class': 'form-control'}}) }}
+                                {% if form_errors(form) %}
+                                    <div class="help-block with-errors">
+                                        <ul class="list-unstyled">
+                                            <li>Rellene este campo.</li>
+                                        </ul>
+                                    </div>
+                                {% endif %}
+                                <!-- CON ERROR  
+                                <div class="help-block with-errors">
+                                    <ul class="list-unstyled">
+                                        <li>Rellene este campo.</li>
+                                    </ul>
+                                </div>-->
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Contraseña *</label>
+                                {{ form_widget(form.password, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-check">
+                                {{ form_widget(form.active, {'attr': {'class': 'form-check-input'}}) }}
+                                <label class="form-check-label" for="user_active">Activo *</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mt-5 text-center">
+                            <button type="submit" class="btn btn-primary mr-2">Actualizar usuario</button>
+                        </div>
+                    </div>
+                {{ form_end(form) }}
+            </div> 
+        </div>
+    </div>
+</div>
+{% endblock %}
