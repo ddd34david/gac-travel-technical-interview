@@ -23,22 +23,6 @@ class ProductController extends AbstractController
     ) {
     }
 
-    #[Route('/prueba', name: 'prueba', methods: ['GET'])]
-    public function load(): void
-    {
-        $response = $this->client->request(
-            'GET',
-            'https://fakestoreapi.com/products'
-        );
-
-        $statusCode = $response->getStatusCode();
-        $contentType = $response->getHeaders()['content-type'][0];
-        $content = $response->getContent();
-        $content = $response->toArray();
-
-        dd($content);
-    }
-
     #[Route('/', name: 'product_index', methods: ['GET'])]
     public function index(ProductRepository $productRepository): Response
     {
